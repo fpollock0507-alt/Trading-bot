@@ -1,0 +1,70 @@
+# Trading bot configuration. Tweak these values as you learn what works.
+
+strategy:
+  name: opening_range_breakout
+  # Opening range = first N minutes after 9:30 ET.
+  opening_range_minutes: 15
+  # Only enter breakouts between this window (ET).
+  entry_window_start: "09:45"
+  entry_window_end: "11:30"
+  # Flat all positions by this time.
+  force_flat_time: "15:55"
+  # Trend filter: daily close must be above/below SMA for longs/shorts.
+  trend_sma_days: 20
+  # Minimum opening-range size as % of price (filters out low-vol chop).
+  min_range_pct: 0.3
+  # Maximum opening-range size (filters out already-exploded stocks).
+  max_range_pct: 3.0
+  # Require breakout volume >= N× the 20-day avg volume of the OR period.
+  volume_confirm_multiplier: 1.5
+  # Target = entry +/- (risk_distance * target_r_multiple)
+  target_r_multiple: 2.0
+
+risk:
+  # Max % of account to risk per trade on a B-grade setup.
+  base_risk_pct: 1.0
+  # A+ setups (strong trend + volume + clean range) get this much.
+  max_risk_pct: 2.0
+  # Stop trading for the day if drawdown exceeds this % of account.
+  daily_loss_cap_pct: 3.0
+  # Stop if daily profit hits this (lock in gains, avoid overtrading).
+  daily_profit_target_pct: 5.0
+  # Max concurrent open positions.
+  max_concurrent_positions: 3
+  # Max trades per day.
+  max_trades_per_day: 3
+
+universe:
+  # Core liquid names the bot always watches.
+  watchlist:
+    - SPY
+    - QQQ
+    - IWM
+    - AAPL
+    - MSFT
+    - NVDA
+    - TSLA
+    - AMD
+    - META
+    - AMZN
+    - GOOGL
+  # Also scan this many premarket top-movers.
+  premarket_movers_count: 10
+  # Minimum average daily volume to be tradable.
+  min_avg_volume: 5000000
+  # Minimum price (avoid penny stocks).
+  min_price: 10.0
+  # Maximum price (keeps position sizing reasonable).
+  max_price: 2000.0
+
+execution:
+  # Use bracket orders (entry + stop + target in one submission).
+  use_bracket_orders: true
+  # How many seconds between scans during the trading session.
+  scan_interval_seconds: 30
+
+reporting:
+  # Git-push EOD report after market close.
+  git_push_on_eod: true
+  # Remote branch to push to.
+  git_branch: main
