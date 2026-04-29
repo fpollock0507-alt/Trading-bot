@@ -1,0 +1,3 @@
+timestamp,symbol,side,grade,qty,entry,stop,target,risk_pct,risk_dollars,reason,order_id
+2026-04-30T00:02:29.363709,GOOGL,long,A+,396,349.2591,344.21,358.6391,2.00,1999.44,ORB long breakout (range=1.36% vol=2.6x trend_str=7.0%),785a1b79-b883-4ea4-a043-d64daa1993ff
+2026-04-30T00:11:34.863413,INTC,long,A,660,88.365,86.09,92.765,1.50,1501.50,ORB long breakout (range=2.56% vol=3.8x trend_str=34.2%),594dce50-5d50-43e5-8b9c-200e52abe9ca
