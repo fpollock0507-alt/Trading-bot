@@ -10,16 +10,24 @@ EOD_SCRIPT="$PROJECT_DIR/scripts/run_eod.sh"
 
 chmod +x "$SESSION_SCRIPT" "$EOD_SCRIPT"
 
+# Escape spaces in paths so cron parses them as a single argument.
+PROJECT_DIR_ESC="${PROJECT_DIR// /\\ }"
+SESSION_SCRIPT_ESC="${SESSION_SCRIPT// /\\ }"
+EOD_SCRIPT_ESC="${EOD_SCRIPT// /\\ }"
+
 TMP="$(mktemp)"
 # Preserve any existing crontab entries that aren't ours.
 crontab -l 2>/dev/null | grep -v "# trading-bot:" > "$TMP" || true
 
 cat >> "$TMP" <<EOF
-# trading-bot: market-open session (9:30 ET Mon–Fri)
-CRON_TZ=America/New_York
-30 9 * * 1-5 $SESSION_SCRIPT >> $PROJECT_DIR/logs/cron_session.log 2>&1 # trading-bot:
-# trading-bot: EOD report + git push (16:05 ET Mon–Fri)
-5 16 * * 1-5 $EOD_SCRIPT >> $PROJECT_DIR/logs/cron_eod.log 2>&1 # trading-bot:
+# trading-bot: market-open session
+# macOS BSD cron uses LOCAL time and ignores CRON_TZ.
+# Schedule below is in Australia/Sydney AEST (UTC+10) for US EDT (UTC-4) market.
+# US 9:30 ET = 23:30 AEST same day  → cron Mon-Fri at 23:30
+# US 16:05 ET = 06:05 AEST next day → cron Tue-Sat at 06:05
+# Update twice a year for DST: AU DST ~Oct 1st Sun, US DST ends ~Nov 1st Sun.
+30 23 * * 1-5 $SESSION_SCRIPT_ESC >> $PROJECT_DIR_ESC/logs/cron_session.log 2>&1 # trading-bot:
+5 6 * * 2-6 $EOD_SCRIPT_ESC >> $PROJECT_DIR_ESC/logs/cron_eod.log 2>&1 # trading-bot:
 EOF
 
 crontab "$TMP"

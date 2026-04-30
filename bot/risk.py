@@ -30,16 +30,39 @@ def grade_to_risk_pct(grade: str, r: dict) -> float:
     return r["base_risk_pct"]
 
 
-def size_position(signal: Signal, account_equity: float, r: dict) -> Sizing | None:
+def size_position(
+    signal: Signal,
+    account_equity: float,
+    buying_power: float,
+    r: dict,
+) -> Sizing | None:
+    """Size a position by BOTH risk-per-trade AND cost-basis cap.
+
+    Two limits applied — take the smaller:
+      1. Risk-based:   qty × stop_distance ≤ risk_pct × equity
+      2. Cost-based:   qty × entry_price   ≤ max_cost_basis_pct × buying_power
+
+    Without (2), tight-stop trades can blow all buying power on one ticker
+    (real bug we hit on GOOGL — $138k cost basis on a $100k account).
+    """
     risk_pct = grade_to_risk_pct(signal.grade, r)
     risk_dollars = account_equity * (risk_pct / 100)
     per_share_risk = signal.risk_per_share
-    if per_share_risk <= 0:
+    if per_share_risk <= 0 or signal.entry_price <= 0:
         return None
-    qty = int(risk_dollars // per_share_risk)
+
+    qty_by_risk = int(risk_dollars // per_share_risk)
+
+    max_cost = buying_power * (r.get("max_cost_basis_pct", 25.0) / 100)
+    qty_by_cost = int(max_cost // signal.entry_price)
+
+    qty = min(qty_by_risk, qty_by_cost)
     if qty <= 0:
         return None
-    return Sizing(qty=qty, risk_dollars=qty * per_share_risk, risk_pct=risk_pct)
+
+    actual_risk = qty * per_share_risk
+    actual_risk_pct = actual_risk / account_equity * 100
+    return Sizing(qty=qty, risk_dollars=actual_risk, risk_pct=actual_risk_pct)
 
 
 def can_trade_today(client: AlpacaClient, r: dict, starting_equity: float) -> tuple[bool, str]:

@@ -46,6 +46,19 @@ def run_session():
     starting_equity = get_starting_equity(client)
     log.info(f"Session start. Starting equity: ${starting_equity:,.2f}")
 
+    # Flatten any stale positions carried over from a previous session.
+    # Without this, a position that didn't close (e.g. Mac slept past
+    # force-flat time) eats today's buying power.
+    stale = client.positions()
+    if stale:
+        log.warning(
+            f"Carryover detected: {len(stale)} stale position(s). Flattening before session begins."
+        )
+        for p in stale:
+            log.warning(f"  - {p.symbol} {p.side} {p.qty} @ {p.avg_entry_price} uPnL {p.unrealized_pl}")
+        flatten_all(client)
+        time.sleep(5)  # let close orders settle
+
     universe = build_universe(client, cfg)
 
     force_flat = dtime.fromisoformat(cfg["strategy"]["force_flat_time"])
@@ -85,9 +98,24 @@ def run_session():
                 if not ok:
                     log.info(f"Risk gate closed mid-loop: {reason}")
                     break
-                sizing = size_position(sig, client.equity(), cfg["risk"])
+
+                # Fetch fresh equity + buying power for accurate sizing
+                equity = client.equity()
+                bp = client.buying_power()
+                sizing = size_position(sig, equity, bp, cfg["risk"])
                 if sizing is None:
+                    log.info(f"Skipping {sig.symbol}: position size would be 0 (insufficient buying power or risk).")
                     continue
+
+                # Pre-flight check: confirm the order will fit in buying power.
+                # Avoids spamming Alpaca with rejected orders (saw 80+ in one session).
+                cost_basis = sizing.qty * sig.entry_price
+                if cost_basis > bp * 0.98:  # 2% safety margin for slippage
+                    log.info(
+                        f"Skipping {sig.symbol}: cost ${cost_basis:,.0f} exceeds available BP ${bp:,.0f}."
+                    )
+                    continue
+
                 oid = execute_signal(client, sig, sizing)
                 if oid:
                     already_taken.add(sig.symbol)

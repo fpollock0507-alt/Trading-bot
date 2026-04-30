@@ -25,6 +25,10 @@ risk:
   base_risk_pct: 1.0
   # A+ setups (strong trend + volume + clean range) get this much.
   max_risk_pct: 2.0
+  # Cap a single position's COST BASIS at this % of buying power.
+  # Protects against tight-stop trades blowing all margin on one ticker.
+  # 25% × 3 concurrent = 75% buying power deployed at peak, 25% buffer.
+  max_cost_basis_pct: 25.0
   # Stop trading for the day if drawdown exceeds this % of account.
   daily_loss_cap_pct: 3.0
   # Stop if daily profit hits this (lock in gains, avoid overtrading).
