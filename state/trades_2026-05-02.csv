@@ -1,0 +1,4 @@
+timestamp,symbol,side,grade,qty,entry,stop,target,risk_pct,risk_dollars,reason,order_id
+2026-05-02T00:02:54.644161,META,short,A+,91,610.67,618.88,594.5099999999999,0.67,747.11,ORB short breakdown (range=1.32% vol=3.0x trend_str=5.5%),4257e512-3d4f-4401-8068-65a0d8e62025
+2026-05-02T00:06:32.248575,QQQ,long,A+,61,673.34,668.8,681.8800000000002,0.25,276.94,ORB long breakout (range=0.64% vol=2.1x trend_str=5.7%),8349ab2a-0607-4765-9e6b-61044864060b
+2026-05-02T00:06:33.738978,AAPL,long,A+,110,284.45,278.37,295.21,0.60,668.80,ORB long breakout (range=1.93% vol=7.0x trend_str=6.8%),2828b11a-37df-47e5-8a89-4067bddfacc3
