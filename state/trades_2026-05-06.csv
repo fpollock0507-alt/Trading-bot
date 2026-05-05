@@ -1,0 +1,4 @@
+timestamp,symbol,side,grade,qty,entry,stop,target,risk_pct,risk_dollars,reason,order_id
+2026-05-06T00:01:42.689874,NOK,long,A,4210,13.9,13.51,14.640000000000002,1.50,1641.90,ORB long breakout (range=2.74% vol=2.7x trend_str=25.4%),2fc8a4a4-424f-4ff4-986b-dca14487751d
+2026-05-06T00:01:44.044617,QQQ,long,B,78,680.56,677.51,685.94,0.22,237.90,ORB long breakout (range=0.40% vol=1.9x trend_str=5.1%),e229c17e-4984-47d0-801e-f3e0429fccf0
+2026-05-06T00:04:25.916550,AMZN,long,A+,144,278.48,275.5,284.4200000000001,0.39,429.12,ORB long breakout (range=1.08% vol=2.8x trend_str=8.8%),94cb5472-a577-48af-be2c-cc98b5811cdf
