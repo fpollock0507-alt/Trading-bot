@@ -1,0 +1,4 @@
+timestamp,symbol,side,grade,qty,entry,stop,target,risk_pct,risk_dollars,reason,order_id
+2026-05-15T00:01:39.303216,GOOGL,long,A+,280,400.51,396.14,408.61,1.09,1223.60,ORB long breakout (range=1.02% vol=2.1x trend_str=7.5%),c3a8b69e-b72d-4c01-9d48-efa48e07b9bc
+2026-05-15T00:01:40.831138,QQQ,long,A,117,719.06,714.22,727.3199999999999,0.50,566.28,ORB long breakout (range=0.58% vol=1.7x trend_str=5.9%),434c05e8-47b3-48f5-9326-ac99c7bb0a56
+2026-05-15T00:38:19.332141,NVDA,long,A+,391,233.755,229.3,241.695,1.55,1741.90,ORB long breakout (range=1.73% vol=3.6x trend_str=12.3%),3ec204ac-57a5-4b05-9c1a-913f1296e31b
