@@ -1,0 +1,2 @@
+timestamp,symbol,side,grade,qty,entry,stop,target,risk_pct,risk_dollars,reason,order_id
+2026-05-22T00:10:19.511995,QQQ,long,B,154,710.85,707.94,715.4499999999999,0.41,448.14,ORB long breakout (range=0.32% vol=1.6x trend_str=2.8%),8b555b95-93c5-41b6-8075-d1f42a00c525
