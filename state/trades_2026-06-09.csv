@@ -1,0 +1,4 @@
+timestamp,symbol,side,grade,qty,entry,stop,target,risk_pct,risk_dollars,reason,order_id
+2026-06-09T00:06:31.578648,NVDA,short,A,506,208.18,210.47,203.64,1.10,1158.74,ORB short breakdown (range=1.09% vol=1.9x trend_str=5.5%),4444b56e-4e9b-41bc-9184-adf93426bdc3
+2026-06-09T00:13:22.974802,QQQ,short,A,103,714.19,719.21,705.1299999999999,0.49,517.06,ORB short breakdown (range=0.63% vol=3.0x trend_str=0.9%),91b11680-7931-462a-bc5c-caa81c4d8ccb
+2026-06-09T00:13:24.140948,SPY,short,B,69,741.335,744.51,735.2750000000001,0.21,219.07,ORB short breakdown (range=0.41% vol=2.2x trend_str=0.6%),67b354b7-5f2d-449f-8058-6f2fc504af2f
