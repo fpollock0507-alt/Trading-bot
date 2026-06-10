@@ -1,0 +1,4 @@
+timestamp,symbol,side,grade,qty,entry,stop,target,risk_pct,risk_dollars,reason,order_id
+2026-06-11T00:01:33.823757,IWM,long,A,366,288.16,283.9,296.12000000000006,1.47,1559.16,ORB long breakout (range=1.40% vol=2.6x trend_str=0.8%),36b56297-b615-42c1-909b-e09659a19cd3
+2026-06-11T00:02:14.171424,AMZN,short,A,307,241.545,244.065,236.73499999999999,0.73,773.64,ORB short breakdown (range=1.00% vol=1.7x trend_str=7.4%),ac8b9c80-2a19-4264-95cd-e6531be301c9
+2026-06-11T00:21:13.465746,TSLA,short,A+,132,390.415,397.09,378.4170000000001,0.83,881.10,ORB short breakdown (range=1.53% vol=2.0x trend_str=7.2%),15b53a5a-1ba3-417b-8d1a-050f6b61c010
