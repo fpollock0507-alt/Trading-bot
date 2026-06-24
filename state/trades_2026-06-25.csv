@@ -1,0 +1,4 @@
+timestamp,symbol,side,grade,qty,entry,stop,target,risk_pct,risk_dollars,reason,order_id
+2026-06-25T00:04:10.541178,GOOGL,short,A+,301,347.11,352.12,338.49,1.44,1508.01,ORB short breakdown (range=1.24% vol=2.4x trend_str=4.3%),a013c0cd-86f8-4b1d-a9f9-6b75c8147047
+2026-06-25T00:04:11.787240,QQQ,short,B,102,712.3291,718.4999,700.8093,0.60,629.42,ORB short breakdown (range=0.81% vol=1.8x trend_str=1.8%),10e00973-f229-48e6-bc45-e33eb9ade41d
+2026-06-25T00:06:42.958766,IWM,long,A,171,297.15,294.69,301.68999999999994,0.40,420.66,ORB long breakout (range=0.77% vol=1.6x trend_str=2.2%),e9e4184b-767b-4909-90a3-937047835ccf
