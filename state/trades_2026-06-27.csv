@@ -1,0 +1,2 @@
+timestamp,symbol,side,grade,qty,entry,stop,target,risk_pct,risk_dollars,reason,order_id
+2026-06-27T00:04:28.516977,GOOGL,short,A+,307,337.125,342.75,326.66499999999996,1.67,1726.88,ORB short breakdown (range=1.55% vol=2.2x trend_str=6.3%),a0cff026-cc6c-44ef-8c9b-1cb83e7ba99a
