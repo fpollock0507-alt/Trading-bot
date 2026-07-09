@@ -1,0 +1,4 @@
+timestamp,symbol,side,grade,qty,entry,stop,target,risk_pct,risk_dollars,reason,order_id
+2026-07-10T00:07:41.560864,AMD,long,A,84,551.78,535.2,581.9799999999998,1.49,1392.72,ORB long breakout (range=2.82% vol=2.8x trend_str=5.5%),29416b0b-5bb6-4b1a-9503-069d1fe93082
+2026-07-10T00:11:28.289055,META,long,A,108,589.9599,577.07,613.9998999999999,1.49,1392.11,ORB long breakout (range=2.08% vol=3.3x trend_str=2.4%),89429632-eac9-4835-ba1e-69e26eb97fb5
+2026-07-10T00:17:10.207695,NVDA,short,A,297,201.35,204.46,195.50999999999996,0.99,923.67,ORB short breakdown (range=1.45% vol=2.3x trend_str=0.8%),63307a4b-9f25-4c62-a66c-e80744cc0886
