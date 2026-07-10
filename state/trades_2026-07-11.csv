@@ -1,0 +1,2 @@
+timestamp,symbol,side,grade,qty,entry,stop,target,risk_pct,risk_dollars,reason,order_id
+2026-07-11T00:02:29.759136,NVDA,long,A,395,205.47,201.92,211.61000000000004,1.50,1402.25,ORB long breakout (range=1.52% vol=1.8x trend_str=3.0%),44933ad7-a4ab-46e0-bf78-6f0f1d477a90
