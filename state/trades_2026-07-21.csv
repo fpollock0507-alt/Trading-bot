@@ -1,0 +1,4 @@
+timestamp,symbol,side,grade,qty,entry,stop,target,risk_pct,risk_dollars,reason,order_id
+2026-07-21T00:01:15.923240,GOOGL,long,B,111,358.99,350.52,375.69000000000005,0.99,940.17,ORB long breakout (range=2.38% vol=1.9x trend_str=0.9%),c81061a6-527e-47cf-b76e-791959b4fea4
+2026-07-21T00:12:32.395107,NFLX,short,A,1029,67.0,68.38,64.30000000000001,1.50,1420.02,ORB short breakdown (range=2.01% vol=2.7x trend_str=8.5%),d6c9355b-fdf9-455f-8753-9907017800f4
+2026-07-21T00:13:13.039491,QQQ,short,A,88,701.1401,705.55,693.6001,0.41,388.07,ORB short breakdown (range=0.54% vol=1.5x trend_str=2.3%),69000690-62fb-463f-a045-984bce74dc71
