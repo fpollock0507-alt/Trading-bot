@@ -1,0 +1,4 @@
+timestamp,symbol,side,grade,qty,entry,stop,target,risk_pct,risk_dollars,reason,order_id
+2026-07-28T00:12:40.317990,TSLA,short,A+,295,310.735,317.0,298.41499999999996,2.00,1848.17,ORB short breakdown (range=1.98% vol=2.6x trend_str=19.9%),4aa975f2-515c-4014-8456-fa4f225fa343
+2026-07-28T00:12:41.638794,QQQ,short,A,70,687.23,692.3,678.1100000000001,0.38,354.90,ORB short breakdown (range=0.66% vol=1.9x trend_str=3.8%),a48b1251-aaed-4149-adbb-bd7a2e492cf9
+2026-07-28T00:20:21.862602,MSFT,long,B,82,392.7205,387.99,401.6205,0.42,387.90,ORB long breakout (range=1.15% vol=2.0x trend_str=1.0%),81454263-c907-40bd-8bfa-2c8f5ef80a0a
