@@ -1,0 +1,4 @@
+timestamp,symbol,side,grade,qty,entry,stop,target,risk_pct,risk_dollars,reason,order_id
+2026-07-30T00:01:16.731201,AAPL,long,A,263,342.24,339.56,347.58000000000004,0.78,704.84,ORB long breakout (range=0.79% vol=2.0x trend_str=6.2%),d9f512c5-da7d-4112-b3b1-088d99916772
+2026-07-30T00:04:35.435660,INTC,short,A,626,86.31,88.47,82.19,1.50,1352.16,ORB short breakdown (range=2.38% vol=2.4x trend_str=18.2%),9e9ee2e1-7674-4c15-9f85-8fd44f83bf9f
+2026-07-30T00:06:35.089077,QQQ,short,A,69,672.73,677.46,665.05,0.36,326.37,ORB short breakdown (range=0.57% vol=1.8x trend_str=4.6%),fd5caff6-70d6-49fc-94b9-c4afe4661421
